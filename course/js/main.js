@@ -25,7 +25,7 @@ function setList(list) {
 //Formatando String e Valores aula 4 
 function formatDesc(desc) { //pega essa função e coloca ela na table na desc
     
-    var str = desc.toString().toLowerCase();//transformando letras em minusculas
+    var str = toLowerCase();//transformando letras em minusculas
     str = str.charAt(0).toUpperCase() + str.slice(1);//primeira letra maiuscula
     return str;
 }
