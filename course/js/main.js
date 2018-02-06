@@ -1,8 +1,8 @@
 //Definindo a logica da aplicação aula 2 
 var list = [
-    { "desc": "caneta", "quantidade": "1", "valor": "5.40" },
-    { "desc": "caderno", "quantidade": "12", "valor": "1.99" },
-    { "desc": "livro", "quantidade": "1", "valor": "15.00" }
+    { "descricao": "caneta", "quantidade": "1", "valor": "5.40" },
+    { "descricao": "caderno", "quantidade": "12", "valor": "1.99" },
+    { "descricao": "livro", "quantidade": "1", "valor": "15.00" }
 ];
 function getTotal(list) {
     var total = 0;
@@ -17,15 +17,15 @@ function getTotal(list) {
 function setList(list) {
     var table = '<thead><tr><td>Descrição</td><td>Quantidade</td><td>Valor</td><td>Ação</td></tr><head><tbody>';
     for (var key in list) {
-        table += '<tr><td>' + formatDesc(list[key].desc) + '</td><td>' + list[key].quantidade + '</td><td>' + formatValor(list[key].valor) + '</td><td>Editar | Excluir</td></tr>';
+        table += '<tr><td>' + formatDesc(list[key].descricao) + '</td><td>' + list[key].quantidade + '</td><td>' + formatValor(list[key].valor) + '</td><td>Editar | Excluir</td></tr>';
     }
     table += '</tbody>';
     document.getElementById("listtable").innerHTML = table;
 }
 //Formatando String e Valores aula 4 
-function formatDesc(desc) { //pega essa função e coloca ela na table na desc
+function formatDesc(descricao) { //pega essa função e coloca ela na table na desc
     
-    var str = toLowerCase();//transformando letras em minusculas
+    var str = descricao.toLowerCase();//transformando letras em minusculas
     str = str.charAt(0).toUpperCase() + str.slice(1);//primeira letra maiuscula
     return str;
 }
