@@ -13,7 +13,7 @@
     <nav class="navbar navbar-default">
         <div style="background-color:#069 " class="container-fluid">
             <div class="navbar-header">
-                <a id="navTitle" style="color:#000" class="navbar-brand" href="index.html"></a>
+                <a id="navTitle" style="color:#fff;font-weight  :bold" class="navbar-brand" href="index.html"></a>
 
             </div>
         </div>
@@ -31,7 +31,18 @@
             <div class="form-group">
                 <input type="text" class="form-control" id="valor" placeholder="valor" />
             </div>
-            <button onClick="add();" class="btn btn-primary">Adicionar</button>
+
+            <!-- Preparando para atualizar registro aula 6 -->
+            <span id="btnAtualizar" style="display:none;">
+                <span id="inputIdAtualizar"></span>
+                <!--aula 7 atualizar dados-->
+
+                <button onClick="salvarDados();" class="btn btn-primary">Salvar</button>
+                <button onClick="cancelarForm();" class="btn btn-warning">Cancelar</button>
+            </span>
+            <!-- fim aula 6 -->
+
+            <button id="btnAdd" onClick="add();" class="btn btn-primary">Adicionar</button>
 
         </div>
         <table id="listtable" class="table">

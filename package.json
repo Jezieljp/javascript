@@ -1,0 +1,24 @@
+{
+  "name": "javascript",
+  "version": "1.0.0",
+  "description": "\"# javascript\"",
+  "main": "gulpfile.js",
+  "dependencies": {
+    "browser-sync": "^2.23.6",
+    "gulp": "^3.9.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jezieljp/javascript.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Jezieljp/javascript/issues"
+  },
+  "homepage": "https://github.com/Jezieljp/javascript#readme"
+}
