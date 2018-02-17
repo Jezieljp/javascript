@@ -1,6 +1,6 @@
 function setConfig() {
     var texts = {
-        "title":"Shopping Control"
+        "title":"Shopping Control obre o lar"
     };
     //setando nossa variavel
     document.title = texts.title;
