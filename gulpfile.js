@@ -1,17 +1,17 @@
 var gulp = require("gulp");
-var notify = require('gulp-notify');
 var browserSync = require("browser-sync").create();
 //var del = require("del");
+//var notify = require('gulp-notify');
 
 //LIMPANDO O CACHE
-/*gulp.task("cache:css", function(){
+gulp.task("cache:css", function(){
     del("./course/css/style.css")
 });
 
 //LIMPANDO CACHE
 gulp.task("cache:js", function(){
     del("./course/css/*.css")
-});*/
+});
 
 //PRIMEIRA FORMA DE USA O BROWSER-SYNC
 gulp.task('server', function () {

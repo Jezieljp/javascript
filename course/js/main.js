@@ -17,7 +17,7 @@ function getTotal(list) {
 function setList(list) {
     var table = '<thead><tr><td>Descrição</td><td>Quantidade</td><td>Valor</td><td>Ação</td></tr><head><tbody>';
     for (var key in list) {
-        table += '<tr><td>' + formatDesc(list[key].descricao) + '</td><td>' + list[key].quantidade + '</td><td>' + formatValor(list[key].valor) + '</td><td> <button class="btn btn-primary" onclick="setUpdate(' + key + ');" > Editar </button> | <button class="btn btn-danger" onclick="excluirDados(' + key + ');" > Excluir </button> </td></tr>'; //button aula6 
+        table += '<tr><td>' + formatDesc(list[key].descricao) + '</td><td>' + formatQuantidade(list[key].quantidade) + '</td><td>' + formatValor(list[key].valor) + '</td><td> <button class="btn btn-primary" onclick="setUpdate(' + key + ');" > Editar </button> | <button class="btn btn-danger" onclick="excluirDados(' + key + ');" > Excluir </button> </td></tr>'; //button aula6 
     }
     table += '</tbody>';
     document.getElementById("listtable").innerHTML = table;
@@ -38,6 +38,11 @@ function formatValor(valor) {//pega essa função e coloca ela na table no local
 }
 //Acrecentando produtos na tabela aula 5
 function add() { //funcao ta no html onclick butto
+
+    if(!validacao()){
+        return;
+    }
+
     var descricao = document.getElementById("descricao").value;
     var quantidade = document.getElementById("quantidade").value;
     var valor = document.getElementById("valor").value;
@@ -72,6 +77,11 @@ function cancelarForm() {
 }
 //AULA 7 criando a funcao para atualizar os dados do form
 function salvarDados(){
+
+    if(!validacao()){
+        return;
+    }
+
     var id = document.getElementById("idAtualizar").value;
     var descricao = document.getElementById("descricao").value;
     var quantidade = document.getElementById("quantidade").value;
@@ -96,9 +106,42 @@ function excluirDados(id){
         }
         setList(list);
     }
-
 }
-
 //rodando a função setList
 setList(list);
 console.log(getTotal(list));
+
+//AULA 9 VALIDACAO DE FORMULARIO
+function formatQuantidade(quantidade) {
+    return parseInt(quantidade);
+}
+
+function validacao(){
+    var descricao = document.getElementById("descricao").value;
+    var quantidade = document.getElementById("quantidade").value;
+    var valor = document.getElementById("valor").value;
+    var errors = "";
+
+    if(descricao === ""){
+        errors += '<p>Preencha Todos os campos</p>';
+    }
+    if(quantidade === ""){
+        errors += '<p>Preencha a Quantidade</p>';
+    }else if(quantidade != parseInt(quantidade)){
+        errors += '<p>Preencha um valor válido</p>';    
+    }
+    if (valor === "") {
+        errors += '<p>Preencha um valor</p>';
+    } else if(valor != parseFloat(valor)) {
+        errors += '<p>Preencha um valor valido<p/>';
+    }
+    if(errors != "") {
+        document.getElementById("errors").innerHTMLb = "<h3>Error</h3>" + errors;
+        return 0;
+    }else {
+        return 1;
+    }
+}
+
+
+
