@@ -19,7 +19,7 @@ function setList(list) {
     for (var key in list) {
         table += '<tr><td>' + formatDesc(list[key].descricao) + '</td><td>' + formatQuantidade(list[key].quantidade) + '</td><td>' + formatValor(list[key].valor) + '</td><td> <button class="btn btn-primary" onclick="setUpdate(' + key + ');" > Editar </button> | <button class="btn btn-danger" onclick="excluirDados(' + key + ');" > Excluir </button> </td></tr>'; //button aula6 
     }
-    table += '</tbody>';
+    table += '</tbody>';              
     document.getElementById("listtable").innerHTML = table;
 }
 //Formatando String e Valores aula 4 
@@ -74,6 +74,8 @@ function cancelarForm() {
 
     //aula 7 limpando dado do form
     document.getElementById("inputIdAtualizar").innerHTML = "";
+    //aula 9 codigo faz aparecer as frases de erros
+    document.getElementById("errors").style.display = "block";//fim do codigo de erros
 }
 //AULA 7 criando a funcao para atualizar os dados do form
 function salvarDados(){
@@ -122,6 +124,8 @@ function validacao(){
     var valor = document.getElementById("valor").value;
     var errors = "";
 
+    document.getElementById("errors").style.display = "none";//Campos preenchido corretamente mensagem somi
+
     if(descricao === ""){
         errors += '<p>Preencha Todos os campos</p>';
     }
@@ -136,7 +140,17 @@ function validacao(){
         errors += '<p>Preencha um valor valido<p/>';
     }
     if(errors != "") {
-        document.getElementById("errors").innerHTMLb = "<h3>Error</h3>" + errors;
+        //aula 9 codigo faz aparecer as frases de erros
+        document.getElementById("errors").style.display = "block";//fim do codigo de erros colocar esse codigo no resert form
+
+        //pegando o css com javascript para dar estilos na mensagem de erros
+        document.getElementById("errors").style.backgroundColor = "#ff0000";
+        document.getElementById("errors").style.color = "#fff";
+        document.getElementById("errors").style.padding = "10px";
+        document.getElementById("errors").style.margin = "10px";
+        document.getElementById("errors").style.borderRadius = "13px";//fim aula 9 
+
+        document.getElementById("errors").innerHTML = "<h3>Ops Preenchas os Campos</h3>" + errors;
         return 0;
     }else {
         return 1;
