@@ -43,13 +43,20 @@
             </span>
             <!-- fim aula 6 -->
 
-            <button id="btnAdd" onClick="add();" class="btn btn-primary">Adicionar</button>
+            <!-- Aula 12 resetando textos -->
+            <span id="btnAdd">
+                    <button onClick="add();" class="btn btn-primary">Adicionar</button>
+                    <button onClick="cancelarForm();" class="btn btn-danger">Excluir</button>
+                    <button onClick="deleteList();" class="btn btn-danger">Deletar Lista</button>
+
+            </span>
+           
 
         </div>
                 <!--Erros -->
         <span id="errors" style="display:none"></span>
 
-        <table id="listtable" class="table">
+        <table id="listtable" class="table"><!--tudo dinaminco-->
             <!-- <thead>
                 <tr>
                     <td>Descrição</td>
@@ -75,7 +82,17 @@
         </table>
         FIM AULA 3 -->
     </div>
-    <h1>ola vidas mundo</h1>
+
+    <!--Aula 11 getTotal-->
+    <nav class="navbar navbar-default navbar-fixed-bottom">
+        <div class="container">
+            <h4 class="text-center text-success">Total: <span id="totalValor">R$ 0,00</span></h4>
+        </div>
+
+    </nav>
+
+
+
     <script src="js/config.js"></script>
     <script src="js/main.js"></script>
 </body>

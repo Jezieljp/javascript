@@ -10,7 +10,7 @@ function getTotal(list) {
     for (var key in list) {
         total += list[key].valor * list[key].quantidade;
     }
-    return total;
+    document.getElementById("totalValor").innerHTML = formatValor(total);//aula 11
 }
 
 //Listando dados Aula 3 da tabela 
@@ -21,6 +21,8 @@ function setList(list) {
     }
     table += '</tbody>';              
     document.getElementById("listtable").innerHTML = table;
+    getTotal(list);//aula 11
+    saveListStorage(list);//aula13
 }
 //Formatando String e Valores aula 4 
 function formatDesc(descricao) { //pega essa função e coloca ela na table na desc
@@ -157,5 +159,27 @@ function validacao(){
     }
 }
 
+// Aula 12 deletando Lista;
+function deleteList(){
+    if(confirm("Tem Sertesa que deseja excluir a tabela?")){
+        list = '';
+        setList(list);
+    }
+}//fim
+
+// aula 13 gravando dados no Storage
+function saveListStorage(list){
+    var jsonStr = JSON.stringify(list);//usando json para transfoma texto em uma string
+    localStorage.setItem("list",jsonStr);
+}
+
+function initListStorage(){
+    var testList = localStorage.getItem("list");
+    if(testList){
+        list = JSON.parse(testList);
+    }
+    setList(list);
+}
+initListStorage();
 
 
